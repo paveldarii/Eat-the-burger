@@ -3,20 +3,17 @@ const mysql = require("mysql");
 const { response } = require("express");
 //Create the methods that will execute the necessary MySQL commands in the controllers.
 //These are the methods you will need to use in order to retrieve and store data in your database.
-const selectAll = (cb) =>
-  connection.query("SELECT * FROM burgers;", function (err, data) {
+const selectAll = (tableName, cb) =>
+  connection.query(`SELECT * FROM ${tableName};`, function (err, data) {
     if (err) {
       return cb(err);
     }
     return cb(data);
   });
-const insertOne = (burgerName, devoured, cb) => {
+const insertOne = (tableName, obj, cb) => {
   connection.query(
-    "INSERT INTO burgers SET ?;",
-    {
-      burger_name: burgerName,
-      devoured: devoured,
-    },
+    `INSERT INTO ${tableName} SET ?;`,
+    obj,
     function (err, result) {
       if (err) {
         return cb(err);
@@ -25,10 +22,16 @@ const insertOne = (burgerName, devoured, cb) => {
     }
   );
 };
-const updateStatus = (burgerId, devoured, cb) => {
+const updateOne = (
+  tableName,
+  idToUpdate,
+  columnToUpdate,
+  contentToUpdate,
+  cb
+) => {
   connection.query(
-    "UPDATE burgers SET ? WHERE ?;",
-    [{ devoured: devoured }, { id: burgerId }],
+    `UPDATE ${tableName} SET ? WHERE ?;`,
+    [{ [columnToUpdate]: contentToUpdate }, { id: idToUpdate }],
     function (err, result) {
       if (err) {
         return cb(err);
@@ -39,7 +42,7 @@ const updateStatus = (burgerId, devoured, cb) => {
 };
 
 module.exports = {
-  selectAll: selectAll,
-  insertOne: insertOne,
-  updateStatus: updateStatus,
+  selectAll,
+  insertOne,
+  updateOne,
 };
