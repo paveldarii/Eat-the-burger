@@ -4,7 +4,9 @@ const router = express.Router();
 
 // get all notes
 router.get("/", (req, res) => {
-  burger.selectAll((data) => console.table(data));
+  burger.selectAll((data) => {
+    res.render("burgers");
+  });
 });
 
 //update devoured status
