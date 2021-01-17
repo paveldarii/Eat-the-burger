@@ -1,0 +1,21 @@
+body {
+  width: 100%;
+  background: linear-gradient(90deg, brown, #e73c7e, brown);
+}
+
+div .jumbotron {
+  width: 40%;
+  border-radius: 25%;
+  background: linear-gradient(0deg, #ee851c, brown, #ee851c);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  color: white;
+  font-weight: 1100;
+}
+nav {
+  background: rgb(93, 188, 210, 0.5);
+}
