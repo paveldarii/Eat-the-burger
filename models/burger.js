@@ -6,8 +6,8 @@ burgers = {
   },
   insertOne: (burgerName, isDevoured, cb) => {
     let data = { burger_name: burgerName, devoured: isDevoured };
-    orm.insertOne("burgers", data, (data) => {
-      cb(data);
+    orm.insertOne("burgers", data, (response) => {
+      cb(response);
     });
   },
   updateStatus: (burgerId, isDevoured, cb) => {
