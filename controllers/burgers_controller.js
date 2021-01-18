@@ -5,21 +5,28 @@ const router = express.Router();
 // get all notes
 router.get("/", (req, res) => {
   burger.selectAll((data) => {
-    res.render("burgers");
+    res.render("burgers", { data });
   });
 });
 
 //update devoured status
-router.put("/", (req, res) => {
-  burger.updateStatus(req.body.burgerId, req.body.isDevoured, (data) => {
-    console.log(data);
+router.put("/api", (req, res) => {
+  //console.log(req.body.burgerId);
+  burger.updateStatus(req.body.burgerId, true, (data) => {
+    burger.selectAll((response) => {
+      res.render("burgers", { response });
+    });
   });
 });
 
 //create a burger
-router.post("/", (req, res) => {
-  burger.insertOne(req.body.burgerName, req.body.isDevoured, (data) => {
+router.post("/api", (req, res) => {
+  console.log(req.body);
+  burger.insertOne(req.body.burgerName, false, (data) => {
     console.log(data);
+    burger.selectAll((data) => {
+      res.render("burgers", { data });
+    });
   });
 });
 module.exports = router;
