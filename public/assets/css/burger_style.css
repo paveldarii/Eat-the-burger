@@ -11,11 +11,35 @@ div .jumbotron {
   margin-left: auto;
   margin-right: auto;
 }
+.input-group {
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.list-group-item {
+  background: rgba(255, 255, 255, 0.5);
+}
+#devoured {
+  color: grey;
+}
+li .btn {
+  position: relative;
+  margin-right: 10px;
+}
+
+.btn {
+  color: white;
+  background: rgb(167, 43, 44);
+  border: none;
+}
+.btn:hover {
+  background: #b45454;
+}
 
 h1 {
   color: white;
   font-weight: 1100;
 }
 nav {
-  background: rgb(93, 188, 210, 0.5);
+  background: rgb(167, 43, 44);
 }
