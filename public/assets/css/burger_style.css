@@ -17,14 +17,18 @@ div .jumbotron {
   margin-right: auto;
 }
 .list-group-item {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 11px;
   background: rgba(255, 255, 255, 0.5);
 }
 #devoured {
   color: grey;
 }
 li .btn {
-  position: relative;
-  margin-right: 10px;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .btn {
@@ -32,7 +36,12 @@ li .btn {
   background: rgb(167, 43, 44);
   border: none;
 }
+
 .btn:hover {
+  background: #b45454;
+}
+.btn:active,
+.btn-primary:active {
   background: #b45454;
 }
 
@@ -42,4 +51,21 @@ h1 {
 }
 nav {
   background: rgb(167, 43, 44);
+}
+#burger-img {
+  max-width: 300px;
+  height: auto;
+  width: auto\9;
+  min-height: 10em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+p {
+  margin-bottom: 0px;
+}
+
+.burger-name {
+  margin-bottom: 10px;
 }
