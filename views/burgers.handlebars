@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <ul class="col-lg-6 ">
-            {{#each data}}
+            {{#each burgers}}
             {{#unless devoured}}
             <li class="list-group-item" idvalue={{id}}>
                 <span class="name">{{burger_name}}</span>
@@ -18,7 +18,7 @@
             {{/each}}
         </ul>
         <ul class="col-lg-6 " id="devoured">
-            {{#each data}}
+            {{#each burgers}}
             {{#if devoured}}
             <li class="list-group-item" idvalue={{id}}>
                 <p class="name">{{burger_name}}</p>
