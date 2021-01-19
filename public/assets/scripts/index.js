@@ -1,11 +1,10 @@
-$("li .btn").on("click", (response) => {
+$("li .btn").on("click", (event) => {
+  let burgerId = parseInt(event.target.offsetParent.attributes[1].nodeValue);
   $.ajax({
     url: "/burgers/api",
     method: "PUT",
     data: {
-      burgerId: parseInt(
-        response.target.parentNode.attributes.idvalue.nodeValue
-      ),
+      burgerId: burgerId,
     },
   }).then(() => {
     console.log("Updated burger");
@@ -13,11 +12,15 @@ $("li .btn").on("click", (response) => {
   });
 });
 
-$("#add-burger-btn").on("click", (data) => {
+$("#add-burger-btn").on("click", () => {
+  let burgName = $("#burger-name").val().trim();
+  if (burgName == "") {
+    return;
+  }
   $.ajax({
     url: "/burgers/api",
     method: "POST",
-    data: { burgerName: $("#burger-name").val().trim() },
+    data: { burgerName: burgName },
   }).then(() => {
     console.log("Added new burger");
     location.reload();
