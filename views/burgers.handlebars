@@ -1,5 +1,31 @@
 <div class="container">
-
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/assets/scripts/index.js"></script>
+    <div class="input-group mb-3 col-md-10 col-lg-8">
+        <input id="burger-name" type="text" class="form-control" placeholder="Burger Name" aria-label="Burger Name"
+            aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button id="add-burger-btn" class="btn btn-outline-secondary" type="button">Add Burger</button>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="col-lg-6 ">
+            {{#each data}}
+            {{#unless devoured}}
+            <li class="list-group-item" idvalue={{id}}>
+                <span class="name">{{burger_name}}</span>
+                <button class="btn float-right">Devour</button>
+            </li>
+            {{/unless}}
+            {{/each}}
+        </ul>
+        <ul class="col-lg-6 " id="devoured">
+            {{#each data}}
+            {{#if devoured}}
+            <li class="list-group-item" idvalue={{id}}>
+                <p class="name">{{burger_name}}</p>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js"></script>
